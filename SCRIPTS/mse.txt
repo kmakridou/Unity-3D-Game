@@ -1,0 +1,20 @@
+function mse(a_signal,b_signal) {
+	a_size = length(a_signal);
+	b_size = length(b_signal);
+	
+	mse = 0;
+	
+	if (a_size <> b_size OR a_size === 0 OR b_size === 0) {
+		error ("not equal signals or signal(s) with zero size");
+		mse = -1;
+	}
+	else {		
+		for (i=0; i<a_size; i++) {
+			mse = mse + (a_signal[i] - b_signal[i])*(a_signal[i] - b_signal[i]);
+		}
+
+		mse = mse/a_size;
+	}
+	
+	return mse;
+}
